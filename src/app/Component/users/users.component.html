@@ -1,6 +1,4 @@
-<div [ngClass]="{
-    'userBody': fetchDataService.serachResult
-  }">
+<div class="userBody">
     <div class="container" [ngClass]="{
         'jumbotron userBody': fetchDataService.serachResult
       }">
@@ -54,7 +52,7 @@
                 </div>
             </div>
         </div>
-        <h4 *ngIf="!fetchDataService.serachResult" style="text-align: center"> your search result will appear here..</h4>
+        <h4 class="empty" *ngIf="!fetchDataService.serachResult"> your search result will appear here..</h4>
 
     </div>
 </div>

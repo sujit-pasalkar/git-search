@@ -1,5 +1,7 @@
+// variable declarations
+$auto:auto;
 .header {
-    margin: auto;
+    margin: $auto;
     padding: 10px;
     background: #1a75ff;
     display: flex
@@ -8,13 +10,13 @@
 #sort {
     float: left;
     width: 50%;
-    overflow: auto;
+    overflow: $auto;
     text-align: left
 }
 
 #search {
     float: right;
     width: 50%;
-    overflow: auto;
+    overflow: $auto;
     text-align: right
 }
