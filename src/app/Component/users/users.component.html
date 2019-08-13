@@ -21,7 +21,7 @@
                 </div>
             </div>
 
-            <div class="card bg-light cardMargin" *ngFor="let user of this.fetchDataService.serachResult.items; index as i">
+            <div class="card bg-light cardMargin" *ngFor="let user of this.fetchDataService.itemData; index as i">
                 <div class="card-body">
                     <div class="row">
                         <div class="col-sm-2 col-md-2 col-lg-2">
@@ -36,7 +36,19 @@
                             </div>
                         </div>
                         <div class="col-sm-2 col-md-8 col-lg-2 right">
-                            <button type="button" class="btn btn-outline-info">Details</button>
+                            <button type="button" class="btn btn-outline-info" (click)="showDetails(user.id)">Details</button>
+                        </div>
+                    </div>
+                    <div *ngIf="user.show">
+                        <div *ngFor="let item of this.userRepo;index as i">
+                            <div class="container row ">
+                                <div class="col-md-6">
+                                    {{i+1}} . {{item.name}}
+                                </div>
+                                <div class="col-md-6">
+                                    lanugaes
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
