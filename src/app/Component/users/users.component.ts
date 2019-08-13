@@ -7,9 +7,14 @@ import { FetchDataService } from '../../services/fetch-data.service';
 })
 export class UsersComponent implements OnInit {
 
-  constructor(private fetchDataService: FetchDataService) { }
+  constructor(private fetchDataService: FetchDataService) { 
+  }
 
   ngOnInit() {
   }
+
+  // get(){
+  //   console.log(`== ${typeof this.fetchDataService.serachResult}`)
+  // }
 
 }

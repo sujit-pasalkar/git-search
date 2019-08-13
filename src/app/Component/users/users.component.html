@@ -1,4 +1,49 @@
-<p>users works!</p>
-<div class="container">
-    <p *ngIf="fetchDataService.serachResult">a{{fetchDataService.serachResult.items | json}}</p>
+<div [ngClass]="{
+    'userBody': fetchDataService.serachResult
+  }">
+    <div class="container" [ngClass]="{
+        'jumbotron userBody': fetchDataService.serachResult
+      }">
+        <div *ngIf="fetchDataService.serachResult">
+            <div class="row">
+                <div class="col-sm-8 col-md-8 col-lg-8">
+                    <h5>Total Result : {{this.fetchDataService.serachResult.total_count}}</h5>
+                </div>
+                <div class="col-sm-4 col-md-4 col-lg-4 right">
+                    <ul class="pagination">
+                        <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                    </ul>
+
+                </div>
+            </div>
+
+            <div class="card bg-light cardMargin" *ngFor="let user of this.fetchDataService.serachResult.items; index as i">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-sm-2 col-md-2 col-lg-2">
+                            <img src="{{user.avatar_url}}" class="rounded-circle" height="50px" width="50px">
+                        </div>
+                        <div class="col-sm-8 col-md-8 col-lg-8">
+                            <div>
+                                <h3>{{user.login}}</h3>
+                            </div>
+                            <div>
+                                <p>Profile Url: {{user.url}}</p>
+                            </div>
+                        </div>
+                        <div class="col-sm-2 col-md-8 col-lg-2 right">
+                            <button type="button" class="btn btn-outline-info">Details</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <h4 *ngIf="!fetchDataService.serachResult" style="text-align: center"> your search result will appear here..</h4>
+
+    </div>
 </div>
+<!-- <button (click)="get()">get</button> -->

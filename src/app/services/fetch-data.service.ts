@@ -12,12 +12,23 @@ export class FetchDataService {
   constructor(private http: HttpClient) {}
 
   fetchSearchResult(searchQuery: String) {
-    console.log(`in fetch: ${searchQuery}`);
-    return this.http
-      .get(`https://api.github.com/search/users?q=${searchQuery}`)
-      .subscribe(res => {
-        this.serachResult = JSON.stringify(res);
-      });
+    try {
+      console.log(`in fetch: ${searchQuery}`);
+      if(searchQuery != '')
+      {
+        this.http
+        .get(`https://api.github.com/search/users?q=${searchQuery}`)
+        .subscribe(res => {
+          this.serachResult = res;
+          console.log(`got res:${JSON.stringify(this.serachResult)}`);
+        });
+      }
+      else{
+        this.serachResult = null;
+      }
+    } catch (error) {
+      console.log(`error while fetching data:${error}`)
+    }
   }
 
   private handleError<T>(operation = "operation", result?: T) {
