@@ -18,6 +18,10 @@ export class FetchDataService {
       if (searchQuery != "") {
         this.http
           .get(`https://api.github.com/search/users?q=${searchQuery}`)
+          // .pipe(
+          //   tap(),
+          //   catchError(this.handleError<any>("getData", []))
+          // )
           .subscribe((res: Response) => {
             this.serachResult = res;
             this.itemData = JSON.stringify(this.serachResult.items);
@@ -41,7 +45,7 @@ export class FetchDataService {
       .get<any>(`https://api.github.com/users/${username}/repos`)
       .pipe(
         tap(_ => console.log("fetched repos")),
-        catchError(this.handleError<any>("getData", []))
+        catchError(this.handleError<any>("get", []))
       );
   }
 
