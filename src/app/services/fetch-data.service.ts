@@ -1,3 +1,4 @@
+  // common service to shared data with all components
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { Observable, of } from "rxjs";
@@ -31,7 +32,6 @@ export class FetchDataService {
         this.serachResult = null;
       }
     } catch (error) {
-      // console.log(`error while fetching data:${error}`);
       this.serachResult = null;
     }
   }

@@ -20,11 +20,13 @@ export class HeaderComponent implements OnInit {
   }
 
   fetchData() {
+    // passing search text evrytime text changes
     this.fetchDataService.fetchSearchResult(this.searchQuery);
   }
 
   sort(){
     if(this.fetchDataService.itemData){
+    // sort by a->z
       this.fetchDataService.itemData.sort((a, b) => a.login < b.login ? -1 : a.login > b.login ? 1 : 0);
     }
   }
