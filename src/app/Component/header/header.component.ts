@@ -22,4 +22,10 @@ export class HeaderComponent implements OnInit {
   fetchData() {
     this.fetchDataService.fetchSearchResult(this.searchQuery);
   }
+
+  sort(){
+    if(this.fetchDataService.itemData){
+      this.fetchDataService.itemData.sort((a, b) => a.login < b.login ? -1 : a.login > b.login ? 1 : 0);
+    }
+  }
 }

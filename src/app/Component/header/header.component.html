@@ -2,8 +2,8 @@
     <div class="container">
         <div id="sort">
             <div class="dropdown">
-                <button class="btn" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          Sort By Name <a class="fa fa-caret-down"></a>
+                <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" (click)="sort()">
+                          Sort By Name 
                         </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                     <a class="dropdown-item" href="#">Action</a>
@@ -11,6 +11,7 @@
                     <a class="dropdown-item" href="#">Something else here</a>
                 </div>
             </div>
+
         </div>
         <div id="search">
             <input class="form-control" type="text" placeholder="Search By Name" aria-label="Search" (input)="search()" [(ngModel)]="searchQuery">

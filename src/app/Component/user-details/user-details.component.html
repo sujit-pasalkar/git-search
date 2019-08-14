@@ -1,0 +1,19 @@
+<div class="table-responsive-md table-responsive-sm">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Repository Name</th>
+                <th>languages</th>
+                <th>Created At</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of userRepo;index as i">
+                <td>{{item.name}}</td>
+                <td>{{item.language}}</td>
+                <td>{{item.created_at | date }}</td>
+            </tr>
+        </tbody>
+
+    </table>
+</div>

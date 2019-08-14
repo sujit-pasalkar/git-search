@@ -1,16 +1,16 @@
 import { Component, OnInit } from "@angular/core";
 import { FetchDataService } from "../../services/fetch-data.service";
+import { UserDetailsComponent } from "../user-details/user-details.component";
+
 @Component({
   selector: "app-users",
   templateUrl: "./users.component.html",
   styleUrls: ["./users.component.scss"]
 })
 export class UsersComponent implements OnInit {
-  userData;
   userRepo;
 
   constructor(private fetchDataService: FetchDataService) {
-    this.userData = this.fetchDataService.serachResult;
   }
 
   ngOnInit() {

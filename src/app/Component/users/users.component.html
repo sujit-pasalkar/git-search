@@ -7,16 +7,6 @@
                 <div class="col-sm-8 col-md-8 col-lg-8">
                     <h5>Total Result : {{this.fetchDataService.serachResult.total_count}}</h5>
                 </div>
-                <div class="col-sm-4 col-md-4 col-lg-4 right">
-                    <ul class="pagination">
-                        <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                        <li class="page-item"><a class="page-link" href="#">1</a></li>
-                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                        <li class="page-item"><a class="page-link" href="#">Next</a></li>
-                    </ul>
-
-                </div>
             </div>
 
             <div class="card bg-light cardMargin" *ngFor="let user of this.fetchDataService.itemData; index as i">
@@ -38,16 +28,7 @@
                         </div>
                     </div>
                     <div *ngIf="user.show">
-                        <div *ngFor="let item of this.userRepo;index as i">
-                            <div class="container row ">
-                                <div class="col-md-6">
-                                    {{i+1}} . {{item.name}}
-                                </div>
-                                <div class="col-md-6">
-                                    lanugaes
-                                </div>
-                            </div>
-                        </div>
+                        <app-user-details [userRepo]="userRepo"></app-user-details>
                     </div>
                 </div>
             </div>
