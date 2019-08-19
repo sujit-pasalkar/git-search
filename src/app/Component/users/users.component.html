@@ -1,39 +1,41 @@
-<div class="userBody">
-    <div class="container" [ngClass]="{
-        'jumbotron userBody': fetchDataService.serachResult
-      }">
-        <div *ngIf="fetchDataService.serachResult">
-            <div class="row">
-                <div class="col-sm-8 col-md-8 col-lg-8">
-                    <h5>Total Result : {{this.fetchDataService.serachResult.total_count}}</h5>
-                </div>
+<div class="jumbotron" [ngClass]="{
+    'userBody': !fetchDataService.serachResult
+  }">
+    <div *ngIf="fetchDataService.serachResult">
+        <div class="row">
+            <div class="col-sm-8 col-md-8 col-lg-8">
+                <h5>Total Result : {{this.fetchDataService.serachResult.total_count}}</h5>
             </div>
+        </div>
 
-            <div class="card bg-light cardMargin" *ngFor="let user of this.fetchDataService.itemData; index as i">
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-sm-2 col-md-2 col-lg-2">
-                            <img src="{{user.avatar_url}}" class="rounded-circle" height="50px" width="50px">
+        <div class="card bg-light cardMargin" *ngFor="let user of this.fetchDataService.itemData; index as i">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-sm-2 col-md-2 col-lg-2">
+                        <img src="{{user.avatar_url}}" class="rounded-circle" height="50px" width="50px">
+                    </div>
+                    <div class="col-sm-8 col-md-8 col-lg-8">
+                        <div>
+                            <h3>{{user.login}}</h3>
                         </div>
-                        <div class="col-sm-8 col-md-8 col-lg-8">
-                            <div>
-                                <h3>{{user.login}}</h3>
-                            </div>
-                            <div>
-                                <p>Profile Url: {{user.url}}</p>
-                            </div>
+                        <div>
+                            <p>Profile Url: {{user.url}}</p>
                         </div>
-                        <div class="col-sm-2 col-md-8 col-lg-2 right">
-                            <button type="button" class="btn btn-outline-info" (click)="showDetails(user.id)">Details</button>
+                        <div>
+                            <p>Score: {{user.score}}</p>
                         </div>
                     </div>
-                    <div *ngIf="user.show">
-                        <app-user-details [userRepo]="userRepo"></app-user-details>
+                    <div class="col-sm-2 col-md-8 col-lg-2 right">
+                        <button type="button" class="btn btn-outline-info" (click)="showDetails(user.id)">Details</button>
                     </div>
+                </div>
+                <div *ngIf="user.show">
+                    <app-user-details [userRepo]="userRepo"></app-user-details>
                 </div>
             </div>
         </div>
-        <h4 class="empty" *ngIf="!fetchDataService.serachResult"> your search result will appear here..</h4>
-
+    </div>
+    <div style="text-align: center;">
+        <h4 style="line-height: 30" *ngIf="!fetchDataService.serachResult"> your search result will appear here..</h4>
     </div>
 </div>

@@ -1,11 +1,10 @@
-@mixin funEmpty() {
-    text-align: center;
-    padding-top: 30%
-}
-
+// @mixin funEmpty() {
+//     text-align: center;
+//     padding-top: 30%
+// }
 .userBody {
     background-color: #e9ecef;
-    min-height: 100vh;
+    height: calc(100vh - 60px);
 }
 
 .cardMargin {
@@ -21,6 +20,6 @@
     text-align: right;
 }
 
-.empty {
-    @include funEmpty();
-}
+// .empty {
+//     @include funEmpty();
+//

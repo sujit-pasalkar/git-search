@@ -7,16 +7,37 @@ $auto:auto;
     display: flex
 }
 
-#sort {
-    float: left;
-    width: 50%;
-    overflow: $auto;
-    text-align: left
+@media (min-width: 768px) {
+    .floats {
+        float: right;
+    }
 }
 
-#search {
-    float: right;
+@media (max-width: 576px) {
+    .margin {
+        margin-top: 10px;
+    }
+}
+
+.form-control {
     width: 50%;
-    overflow: $auto;
-    text-align: right
+}
+
+// select box
+.select-style {
+    width: 180px;
+    border-radius: 3px;
+    overflow: hidden;
+    background: #fafafa no-repeat 90% 50%;
+    line-height: 2.5;
+}
+
+.select-style select {
+    padding: 5px 8px;
+    border: none;
+    box-shadow: none;
+}
+
+.select-style select:focus {
+    outline: none;
 }

@@ -1,20 +1,20 @@
 <div class="header">
     <div class="container">
-        <div id="sort">
-            <div class="dropdown">
-                <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" (click)="sort()">
-                          Sort By Name 
-                        </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <a class="dropdown-item" href="#">Something else here</a>
+        <div class="row">
+            <div class="col-md-6 col-sm-6">
+                <div class="select-style floats">
+                    <select name="sort" [(ngModel)]="sortBy" (change)="sort()">
+                            <option value="AZ">Sort By Name(A - Z)</option>
+                            <option value="ZA">Sort By Name(Z - A)</option>
+                            <option value="rank0">Rank ASC</option>
+                            <option value="rankN">Rank DSC</option>
+                        </select>
                 </div>
-            </div>
 
-        </div>
-        <div id="search">
-            <input class="form-control" type="text" placeholder="Search By Name" aria-label="Search" (input)="search()" [(ngModel)]="searchQuery">
+            </div>
+            <div class="col-md-6 col-sm-6 margin">
+                <input class="form-control" type="text" placeholder="Search By Name" aria-label="Search" (input)="search($event)">
+            </div>
         </div>
     </div>
 </div>
